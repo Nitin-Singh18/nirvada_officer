@@ -8,6 +8,7 @@ abstract class Routes {
   static const CONFIRM_STATUS_SCREEN = _Paths.CONFIRM_STATUS_SCREEN;
   static const STATUS_SCREEN = _Paths.STATUS_SCREEN;
   static const VOTE_SCREEN = _Paths.VOTE_SCREEN;
+  static const FACIAL_RECOGNITION_SCREEN = _Paths.FACIAL_RECOGNITION_SCREEN;
 }
 
 abstract class _Paths {
@@ -17,4 +18,5 @@ abstract class _Paths {
   static const CONFIRM_STATUS_SCREEN = '/confirm-status-screen';
   static const STATUS_SCREEN = '/status-screen';
   static const VOTE_SCREEN = '/vote-screen';
+  static const FACIAL_RECOGNITION_SCREEN = '/facial-recognition-screen';
 }

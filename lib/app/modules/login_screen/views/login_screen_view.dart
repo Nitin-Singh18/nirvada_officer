@@ -14,130 +14,75 @@ class LoginScreenView extends GetView<LoginScreenController> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        resizeToAvoidBottomInset: false,
         body: Padding(
           padding: EdgeInsets.symmetric(horizontal: 20.0.w),
-          child:
-              Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
-            SizedBox(
-              height: 26.h,
-            ),
-            RichText(
-              text: TextSpan(
-                style: TextStyle(fontSize: 24.sp, fontWeight: FontWeight.w600),
-                children: [
-                  TextSpan(
-                    text: 'N',
-                    style: TextStyle(color: Color(0xffFF671F)),
-                  ),
-                  TextSpan(
-                    text: 'r',
-                    style: TextStyle(color: Color(0xffFF671F)),
-                  ),
-                  TextSpan(
-                    text: 'i',
-                    style: TextStyle(color: Color(0xffFF671F)),
-                  ),
-                  TextSpan(
-                    text: 'v',
-                    style: TextStyle(color: Color(0xff06038D)),
-                  ),
-                  TextSpan(
-                    text: 'ā',
-                    style: TextStyle(color: Color(0xff046A38)),
-                  ),
-                  TextSpan(
-                    text: 'd',
-                    style: TextStyle(color: Color(0xff046A38)),
-                  ),
-                  TextSpan(
-                    text: 'a',
-                    style: TextStyle(color: Color(0xff046A38)),
-                  ),
-                ],
-              ),
-            ),
-            XText(
-              text: "Be a responsible citizen",
-            ),
-            SizedBox(
-              height: 110.h,
-            ),
-            Align(
-              alignment: Alignment.centerLeft,
-              child: XText(
-                text: "Select an option -",
-                size: 18.sp,
-              ),
-            ),
-            SizedBox(
-              height: 26.h,
-            ),
-            CButton(title: "Scan QR", onTap: () {}),
-            SizedBox(
-              height: 26.h,
-            ),
-            Row(
+          child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                Expanded(
-                    child: Container(
-                  height: 1,
-                  color: Colors.black,
-                )),
                 SizedBox(
-                  width: 8.w,
+                  height: 26.h,
+                ),
+                RichText(
+                  text: TextSpan(
+                    style:
+                        TextStyle(fontSize: 24.sp, fontWeight: FontWeight.w600),
+                    children: [
+                      TextSpan(
+                        text: 'N',
+                        style: TextStyle(color: Color(0xffFF671F)),
+                      ),
+                      TextSpan(
+                        text: 'r',
+                        style: TextStyle(color: Color(0xffFF671F)),
+                      ),
+                      TextSpan(
+                        text: 'i',
+                        style: TextStyle(color: Color(0xffFF671F)),
+                      ),
+                      TextSpan(
+                        text: 'v',
+                        style: TextStyle(color: Color(0xff06038D)),
+                      ),
+                      TextSpan(
+                        text: 'ā',
+                        style: TextStyle(color: Color(0xff046A38)),
+                      ),
+                      TextSpan(
+                        text: 'd',
+                        style: TextStyle(color: Color(0xff046A38)),
+                      ),
+                      TextSpan(
+                        text: 'a',
+                        style: TextStyle(color: Color(0xff046A38)),
+                      ),
+                    ],
+                  ),
                 ),
                 XText(
-                  text: "OR",
+                  text: "Be a responsible citizen",
                 ),
                 SizedBox(
-                  width: 8.w,
+                  height: 260.h,
                 ),
-                Expanded(
-                    child: Container(
-                  height: 1.h,
-                  color: Colors.black,
-                )),
-              ],
-            ),
-            SizedBox(
-              height: 22.h,
-            ),
-            CustomTextField(
-                title: "Smart ID",
-                hintText: "Enter smart ID from SMS",
-                controller: controller.smartId),
-            SizedBox(
-              height: 32.h,
-            ),
-            Container(
-              height: 50.h,
-              width: 320.w,
-              alignment: Alignment.center,
-              child: XText(
-                text: "LOGIN",
-                color: Colors.white,
-                size: 18.sp,
-              ),
-              decoration: BoxDecoration(
-                  color: Color(0xff06038D),
-                  borderRadius: BorderRadius.circular(6.r)),
-            ),
-            SizedBox(
-              height: 40.h,
-            ),
-            Row(
-              mainAxisSize: MainAxisSize.min,
-              children: const [
-                XText(
-                  text: "Need help?",
-                  color: Color(0xff06038D),
+                CButton(title: "Scan QR", onTap: () {}),
+                SizedBox(
+                  height: 260.h,
                 ),
-                XText(
-                  text: 'Contact us at 18x.',
+                Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: const [
+                    XText(
+                      text: "Need help?",
+                      color: Color(0xff06038D),
+                    ),
+                    XText(
+                      text: 'Contact us at 18x.',
+                    )
+                  ],
                 )
-              ],
-            )
-          ]),
+              ]),
         ),
       ),
     );

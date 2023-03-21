@@ -8,61 +8,78 @@ import '../../../data/widgets/xText.dart';
 import '../controllers/home_controller.dart';
 
 class HomeView extends GetView<HomeController> {
-  const HomeView({Key? key}) : super(key: key);
+  final authId = Get.arguments;
+
+  HomeView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        appBar: AppBar(
-          elevation: 0,
-          backgroundColor: Colors.white,
-          toolbarHeight: 90.h,
-          flexibleSpace: Column(
-            children: [
-              SizedBox(
-                height: 4.h,
-              ),
-              Container(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: const [
-                    XText(
-                      text: "Time left : ",
-                      size: 14,
-                      color: Colors.black87,
-                      fontWeight: FontWeight.w600,
-                    ),
-                    XText(
-                      text: "2:24:23",
-                      size: 14,
-                      color: Colors.black54,
-                      fontWeight: FontWeight.w600,
-                    ),
-                  ],
+    return Scaffold(
+      body: SafeArea(
+        child: Container(
+          width: double.infinity,
+          child: Padding(
+            padding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 16.w),
+            child: Column(
+              children: [
+                Container(
+                    alignment: Alignment.centerRight,
+                    child: GetBuilder<HomeController>(
+                        id: "0",
+                        // tag: "0",
+                        builder: (controller) {
+                          return RichText(
+                              text: TextSpan(
+                                  style: TextStyle(
+                                    fontFamily: "Poppins",
+                                    fontSize: 14.sp,
+                                    fontWeight: FontWeight.w600,
+                                    color: Color(0xff1b1b1b),
+                                  ),
+                                  children: [
+                                TextSpan(
+                                    text:
+                                        "Time Left : ${controller.start.toString()} ",
+                                    style: TextStyle(
+                                      fontFamily: "Poppins",
+                                      fontSize: 14.sp,
+                                      fontWeight: FontWeight.w600,
+                                      color: Color(0xff1b1b1b),
+                                    )),
+                              ]));
+                        })),
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: XText(
+                    text: "Select your candidate -",
+                    size: 18.sp,
+                    fontWeight: FontWeight.w600,
+                  ),
                 ),
-              ),
-              const SizedBox(
-                height: 30,
-              ),
-              Container(
-                alignment: Alignment.centerLeft,
-                child: const XText(
-                  text: "  Select your candidate -",
-                  size: 18,
-                  color: Colors.black87,
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
-            ],
+                SizedBox(height: 48.h),
+                GetBuilder<HomeController>(
+                  id: "id",
+                  builder: (controller) {
+                    if (!controller.isLoading) {
+                      return Expanded(
+                        child: ListView.builder(
+                          itemCount: controller.candidateData.length,
+                          itemBuilder: (context, index) {
+                            final candidate = controller.candidateData[index];
+                            return CandidateTile(
+                              candidate: candidate,
+                              authId: controller.authid!,
+                            );
+                          },
+                        ),
+                      );
+                    }
+                    return Center(child: CircularProgressIndicator());
+                  },
+                )
+              ],
+            ),
           ),
         ),
-        body: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: ListView.builder(
-                itemCount: 10,
-                itemBuilder: (context, index) {
-                  return CandidateTile();
-                })),
       ),
     );
   }

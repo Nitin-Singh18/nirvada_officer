@@ -6,10 +6,12 @@ import 'package:get/get.dart';
 import '../../../data/widgets/c_button.dart';
 import '../../../data/widgets/status_widget.dart';
 import '../../../data/widgets/xText.dart';
+import '../../../routes/app_pages.dart';
 import '../controllers/status_screen_controller.dart';
 
 class StatusScreenView extends GetView<StatusScreenController> {
-  const StatusScreenView({Key? key}) : super(key: key);
+  final Map<String, dynamic> candidateDetails = Get.arguments;
+  StatusScreenView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -32,6 +34,8 @@ class StatusScreenView extends GetView<StatusScreenController> {
                 textAlign: TextAlign.center,
                 text: TextSpan(
                     style: TextStyle(
+                        height: 1.2,
+                        fontFamily: "Poppins",
                         color: Colors.black,
                         fontSize: 24.sp,
                         fontWeight: FontWeight.w600),
@@ -46,7 +50,7 @@ class StatusScreenView extends GetView<StatusScreenController> {
             ),
             Image.asset("assets/images/check.png"),
             SizedBox(
-              height: 30.h,
+              height: 36.h,
             ),
             Row(
               children: [
@@ -68,34 +72,30 @@ class StatusScreenView extends GetView<StatusScreenController> {
             SizedBox(
               height: 20.h,
             ),
-            DetailsWidget(title: "Voter name-", data: "Ali yasin"),
-            SizedBox(
-              height: 6.h,
-            ),
-            DetailsWidget(title: "Serial Number -", data: "12318788"),
-            SizedBox(
-              height: 6.h,
-            ),
-            DetailsWidget(title: "Voted Candidate -", data: "Narendra D. Modi"),
+            DetailsWidget(
+                title: "Voted Candidate -", data: candidateDetails['name']),
             SizedBox(
               height: 6.h,
             ),
             DetailsWidget(
-                title: "Party Name -", data: "Bhartiya Janta Party (BJP)"),
+                title: "Party Name -", data: candidateDetails['p_name']),
             SizedBox(
-              height: 30.h,
+              height: 40.h,
             ),
             CButton(
-              title: "Go back to QR Scan",
-              onTap: () {},
+              title: "Go back to login",
+              onTap: () {
+                Get.toNamed(Routes.LOGIN_SCREEN);
+              },
             ),
             SizedBox(
-              height: 34.h,
+              height: 38.h,
             ),
             RichText(
                 textAlign: TextAlign.center,
                 text: TextSpan(
                     style: TextStyle(
+                        fontFamily: "Poppins",
                         color: Color(0xB31B1B1B),
                         fontSize: 12.sp,
                         fontWeight: FontWeight.w400),

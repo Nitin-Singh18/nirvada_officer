@@ -3,10 +3,8 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:majascan/majascan.dart';
 
-class LoginScreenController extends GetxController {
-  final TextEditingController smartId = TextEditingController();
-
-  String result = "";
+class QrScannerScreenController extends GetxController {
+  String result = "Hey there !";
 
   Future<void> scanQR() async {
     try {

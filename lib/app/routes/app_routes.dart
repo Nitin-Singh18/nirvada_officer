@@ -10,6 +10,8 @@ abstract class Routes {
   static const VOTE_SCREEN = _Paths.VOTE_SCREEN;
   static const QR_SCREEN = _Paths.QR_SCREEN;
   static const FACIAL_RECOGNITION_SCREEN = _Paths.FACIAL_RECOGNITION_SCREEN;
+  static const QR_SCANNER_SCREEN = _Paths.QR_SCANNER_SCREEN;
+  static const IS_VOTED_SCREEN = _Paths.IS_VOTED_SCREEN;
 }
 
 abstract class _Paths {
@@ -21,4 +23,6 @@ abstract class _Paths {
   static const VOTE_SCREEN = '/vote-screen';
   static const QR_SCREEN = '/qr-screen';
   static const FACIAL_RECOGNITION_SCREEN = '/facial-recognition-screen';
+  static const QR_SCANNER_SCREEN = '/qr-scanner-screen';
+  static const IS_VOTED_SCREEN = '/is-voted-screen';
 }

@@ -66,7 +66,11 @@ class LoginScreenView extends GetView<LoginScreenController> {
                 SizedBox(
                   height: 260.h,
                 ),
-                CButton(title: "Scan QR", onTap: () {}),
+                CButton(
+                    title: "Scan QR",
+                    onTap: () {
+                      controller.scanQR();
+                    }),
                 SizedBox(
                   height: 260.h,
                 ),
